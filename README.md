@@ -22,6 +22,22 @@ Sau lab, bạn có thể:
 4. Dùng Precision, Recall, F1 và IoU để kiểm tra **nhãn con người** với gold set.
 5. Train từ checkpoint YOLO theo notebook trong Google Colab và đánh giá model trên eval set.
 
+## Thứ tự đọc tài liệu
+
+Đọc các file `.md` theo thứ tự trước khi bắt tay vào lab. Mỗi file giữ một vai trò; không bỏ qua `RULES.md` và `CHECKPOINTS.md` vì chúng đặt khung giới hạn và mốc phải có.
+
+| # | File | Nội dung | Khi đọc |
+| ---: | --- | --- | --- |
+| 1 | [RULES.md](RULES.md) | Quy định làm bài, hợp tác, gold/split, secret | Đọc đầu tiên, trước mọi thứ |
+| 2 | [CHECKPOINTS.md](CHECKPOINTS.md) | Sản phẩm từng bước + thời lượng 4 giờ | Đọc để nắm mốc và thứ tự thao tác |
+| 3 | [GUIDE.md](GUIDE.md) | Cách làm chi tiết từng bước (nhãn, QC, gold, train/eval) | Đọc và làm theo trong suốt buổi lab |
+| 4 | [GUIDELINE_MINI.md](GUIDELINE_MINI.md) | Mẫu guideline cá nhân **bạn phải điền** | Điền **trước** khi gán nhãn (CP1) |
+| 5 | [RUBRIC.md](RUBRIC.md) | Tiêu chí chấm điểm và mức chất lượng | Đọc trước khi làm để biết cần đạt gì |
+| 6 | [SUBMISSION.md](SUBMISSION.md) | Cách đặt tên repo, cấu trúc nộp, xử lý kết quả Colab | Đối chiếu **trước khi nộp** |
+| 7 | [report/individual/MSSV_HoTen.md](report/individual/MSSV_HoTen.md) | Mẫu báo cáo cá nhân | Điền **cuối cùng**, tập hợp kết quả |
+
+> Mẹo: đọc 1–3 và 5 trước buổi lab để nắm rõ ràng phải làm và chấm; điền 4 (guideline) trong buổi; đối chiếu 6 và điền 7 ở giai đoạn nộp.
+
 ## Bài nộp
 
 - `dataset/labels/train/`: 50 file nhãn YOLO, mỗi file ứng với một ảnh trong `dataset/images/train/`.
@@ -39,7 +55,7 @@ Sau lab, bạn có thể:
 - Gán nhãn rồi **commit và push** `dataset/labels/train/` lên repo của bạn — đây là bản dữ liệu Colab sẽ tự clone.
 - Trên Colab, mở notebook `notebooks/day2_annotation_to_yolo.ipynb` (từ trang GitHub của repo, mở bằng nút Colab, hoặc dán URL repo). Chọn runtime có GPU nếu được cấp. Cell đầu tự clone repo của bạn về Colab — không cần upload file hay zip.
 
-Đọc theo thứ tự: [RULES.md](RULES.md) → [CHECKPOINTS.md](CHECKPOINTS.md) → [GUIDE.md](GUIDE.md). Khi chuẩn bị nộp, đối chiếu [SUBMISSION.md](SUBMISSION.md), [RUBRIC.md](RUBRIC.md) và [mẫu báo cáo](report/individual/MSSV_HoTen.md).
+Đọc các file tài liệu theo thứ tự ở mục **Thứ tự đọc tài liệu** ở trên; khi chuẩn bị nộp, đối chiếu [SUBMISSION.md](SUBMISSION.md), [RUBRIC.md](RUBRIC.md) và [mẫu báo cáo](report/individual/MSSV_HoTen.md).
 
 ## Cấu trúc thư mục
 

@@ -17,12 +17,13 @@ Nếu lớp dùng tên riêng, thay `L2` bằng `L2A` hoặc `L2B`. Ví dụ: `K
 ## Cấu trúc bài nộp
 
 ```text
-dataset/labels/train/                  50 file YOLO do học viên gán
-GUIDELINE_MINI.md                       định nghĩa lớp và ít nhất 3 ca mơ hồ
-outputs/annotation_evaluation.json      kết quả kiểm tra nhãn sau khi nhận gold
-report/individual/MSSV_HoTen.md          báo cáo cá nhân đã đổi tên
-report/individual/assets/               ảnh/chỉ số đánh giá model được dẫn trong báo cáo
-notebooks/day2_annotation_to_yolo.ipynb  notebook của bài
+dataset/labels/train/                       50 file YOLO do học viên gán
+GUIDELINE_MINI.md                           định nghĩa lớp và ít nhất 3 ca mơ hồ
+outputs/annotation_evaluation.json          kết quả kiểm tra nhãn sau khi nhận gold
+report/individual/MSSV_HoTen.md             báo cáo cá nhân đã đổi tên
+report/individual/assets/eval_predictions/ 10 ảnh eval kèm box dự đoán (từ Colab)
+report/individual/assets/yolo26_runs/      log train và ảnh chỉ số model (từ Colab)
+notebooks/day2_annotation_to_yolo.ipynb     notebook của bài
 ```
 
 Đổi `MSSV_HoTen.md` thành tên thật, ví dụ `20241234_NguyenVanAn.md`. Báo cáo ghi link Colab đã chạy, precision/recall/mAP của model và đường dẫn ảnh đánh giá trên 10 ảnh `eval`. Không chép số minh họa hoặc kết quả của người khác thành kết quả của mình.
@@ -37,7 +38,47 @@ git add -f outputs/annotation_evaluation.json
 git status
 ```
 
-Nếu ảnh eval đang nằm trong output Colab, tải những ảnh cần phân tích vào `report/individual/assets/` và dẫn link tương đối từ báo cáo. Giữ link Colab chạy được và cấp quyền xem cho người chấm theo thông báo lớp; không công khai gold train hoặc dữ liệu nội bộ.
+Kết quả Colab: giải nén `day2_colab_outputs.zip` rồi đặt **cả 2 folder** `eval_predictions/` và `yolo26_runs/` vào `report/individual/assets/`, dẫn link tương đối từ báo cáo (xem mục dưới). Giữ link Colab chạy được và cấp quyền xem cho người chấm theo thông báo lớp; không công khai gold train hoặc dữ liệu nội bộ.
+
+## Kết quả Colab: xử lý `day2_colab_outputs.zip`
+
+Chạy xong cell cuối, notebook tạo **`outputs/day2_colab_outputs.zip`** (thấy trong file tree của Colab). Bên trong gồm:
+
+```text
+day2_colab_outputs/
+  eval_predictions/
+    visuals/                   10 ảnh eval kèm box dự đoán của model
+  yolo26_runs/
+    vehicle_annotation/        log train theo epoch, có file results.csv
+    vehicle_eval/              các ảnh chỉ số đánh giá model (confusion matrix, PR curve, ...)
+  model_eval_metrics.json      precision, recall, mAP50, mAP50–95 của best checkpoint
+```
+
+Cách xử lý: **nộp cả 2 folder đã giải nén** `eval_predictions/` và `yolo26_runs/` vào `report/individual/assets/`:
+
+1. **Tải ZIP về và giải nén.** Ở Colab, tải `day2_colab_outputs.zip` về (hoặc giải nén trực tiếp trong file tree). Bên trong giải ra 2 folder:
+   - `eval_predictions/visuals/` — 10 ảnh eval kèm box dự đoán của model.
+   - `yolo26_runs/vehicle_annotation/` (có `results.csv`) và `yolo26_runs/vehicle_eval/` (ảnh chỉ số: confusion matrix, PR curve, ...).
+2. **Đặt 2 folder vào `report/individual/assets/`** (giữ cấu trúc con như trong ZIP):
+   ```text
+   report/individual/assets/
+     eval_predictions/
+       visuals/...
+     yolo26_runs/
+       vehicle_annotation/
+         results.csv
+         weights/            (best.pt, last.pt — KHÔNG nộp, xem bước 3)
+       vehicle_eval/
+   ```
+   Từ báo cá nhân, dẫn link tương đối tới các ảnh/chỉ số (ví dụ `assets/eval_predictions/visuals/drive_055.jpg`).
+3. **Checkpoint `.pt` tự bị loại.** `.gitignore` đã chặn toàn bộ file `.pt`, nên khi bạn `git add report/individual`, `weights/best.pt` và `last.pt` **không** được commit — bạn không cần xóa tay. Kiểm tra nhanh trước khi push:
+   ```bash
+   git status -- report/individual/assets
+   find report/individual/assets -name '*.pt'   # phải trả về rỗng sau khi add
+   ```
+   Nếu thấy `.pt` hiện trong `git status`, tức có file đã được track trước đó — báo giảng viên, không tự `git add -f`.
+4. **Số liệu (bắt buộc):** copy 4 chỉ số từ `model_eval_metrics.json` (đã in ngay trong notebook) vào mục 5 của báo cáo.
+5. **Commit:** `git add report/individual` (đã có trong lệnh chốt bài) sẽ đưa cả 2 folder assets (đã sạch `.pt`) lên GitHub. `.gitignore` bỏ qua `outputs/` nên ZIP gốc và log Colab không bị commit — chỉ nộp các ảnh/index đã giải nén ở `assets/`.
 
 ## Khóa nhãn và rework
 
@@ -48,7 +89,7 @@ Không commit `gold_train_labels/` hoặc file ZIP chứa gold. Colab chỉ clon
 ## Nơi nộp và deadline
 
 - Mỗi học viên tự nộp **link repo trên LMS bằng tài khoản cá nhân**.
-- Deadline: **11:59 trưa ngày hôm sau buổi lab, UTC+7**. Ca ngày 09/11/2026 có hạn nộp **11:59 ngày 10/11/2026**.
+- Deadline: **11:59 trưa ngày hôm sau buổi lab, UTC+7**. Ca ngày 11/11/2026 có hạn nộp **11:59 ngày 12/11/2026**.
 - Gia hạn, nộp muộn và sửa bài sau deadline theo thông báo chính thức của Key Coach trên kênh lớp/LMS. Lab không tự đặt thêm mức trừ điểm ngoài rubric và thông báo đó.
 
 ## Kiểm tra trước khi nộp
@@ -57,7 +98,7 @@ Không commit `gold_train_labels/` hoặc file ZIP chứa gold. Colab chỉ clon
 - [ ] Có 50 file nhãn YOLO, cùng basename với ảnh train; checker chạy đạt.
 - [ ] Mini guideline có định nghĩa lớp, quy tắc box và ít nhất 3 ca mơ hồ có lý do.
 - [ ] Có JSON đánh giá annotation; kết quả trước/sau rework được ghi rõ nếu có.
-- [ ] Colab đã chạy; có link, metrics và ảnh eval trong báo cáo.
+- [ ] Colab đã chạy; có link, metrics và cả 2 folder `assets/eval_predictions/` + `assets/yolo26_runs/` trong báo cáo.
 - [ ] Nhãn train và JSON thực sự xuất hiện trên GitHub, không chỉ nằm trên máy.
 - [ ] Không có gold train, tài liệu giảng viên, token, mật khẩu hoặc model `.pt` trong commit.
 - [ ] Đã nộp link trên LMS trước deadline và người chấm xem được bài.
