@@ -1,8 +1,8 @@
 # Bài thực hành Ngày 2 - Gán nhãn phát hiện vật thể cho ADAS
 
-**Bài cá nhân.** Mỗi học viên tự làm và nộp bộ nhãn của mình. Hạn nộp: **11:59 trưa ngày hôm sau buổi lab (giờ Việt Nam, UTC+7)**. Với buổi ngày 09/11/2026, hạn nộp là **11:59 ngày 10/11/2026**. Kênh nộp theo thông báo của giảng viên.
+**Bài cá nhân.** Mỗi học viên tự làm và nộp bộ nhãn của mình. Hạn nộp: **11:59 trưa ngày hôm sau buổi lab (giờ Việt Nam, UTC+7)**. Với buổi ngày 09/11/2026, hạn nộp là **11:59 ngày 10/11/2026**. Nộp bài qua LMS tại [aithucchien.vinuni.edu.vn](https://aithucchien.vinuni.edu.vn).
 
-Repo đề bài: `K5-L2-Day02-ObjectDetection`, dùng chung cho K5 Level 2. Mỗi học viên tự nộp link repo bài làm trên LMS bằng tài khoản cá nhân; tên repo và các file cần nộp ở [SUBMISSION.md](SUBMISSION.md).
+Repo đề bài: `K5-L2-Day02-ObjectDetection`, dùng chung cho K5 Level 2. Mỗi học viên tự nộp link repo bài làm trên [LMS AI Thực chiến](https://aithucchien.vinuni.edu.vn) bằng tài khoản cá nhân; tên repo và các file cần nộp ở [SUBMISSION.md](SUBMISSION.md).
 
 Trong bốn giờ, bạn sẽ tạo nhãn chuẩn (ground truth) cho ảnh cảnh giao thông, kiểm tra chất lượng nhãn bằng gold set do giảng viên cung cấp, sau đó train và đánh giá YOLO. Bài thực hành mô phỏng phần dữ liệu của hệ thống hỗ trợ người lái (ADAS):
 
