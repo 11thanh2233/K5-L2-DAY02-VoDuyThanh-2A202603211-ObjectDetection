@@ -21,6 +21,7 @@ dataset/labels/train/                  50 file YOLO do học viên gán
 GUIDELINE_MINI.md                       định nghĩa lớp và ít nhất 3 ca mơ hồ
 outputs/annotation_evaluation.json      kết quả kiểm tra nhãn sau khi nhận gold
 report/individual/MSSV_HoTen.md          báo cáo cá nhân đã đổi tên
+report/individual/assets/               ảnh/chỉ số đánh giá model được dẫn trong báo cáo
 notebooks/day2_annotation_to_yolo.ipynb  notebook của bài
 ```
 
