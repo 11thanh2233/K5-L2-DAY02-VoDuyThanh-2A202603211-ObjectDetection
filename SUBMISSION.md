@@ -43,7 +43,7 @@ Nếu ảnh eval đang nằm trong output Colab, tải những ảnh cần phân
 
 Sau self-QC, commit và push bộ nhãn ban đầu theo mốc khóa của giảng viên. Chỉ nhận `gold_train_labels/` khi cả lớp đã khóa/nộp nhãn. Trước khi rework, giữ commit của bản ban đầu và lưu số liệu trước/sau trong báo cáo; không sửa gold hoặc viết lại lịch sử để thay bản đã khóa.
 
-Không commit `gold_train_labels/` hoặc file ZIP chứa gold. Chỉ upload dataset bài làm và notebook lên Colab, không upload gold train hay nội dung giảng viên.
+Không commit `gold_train_labels/` hoặc file ZIP chứa gold. Colab chỉ clone repo của bạn, nên repo là đầu dữ liệu duy nhất: không đưa gold train hay nội dung giảng viên vào repo.
 
 ## Nơi nộp và deadline
 

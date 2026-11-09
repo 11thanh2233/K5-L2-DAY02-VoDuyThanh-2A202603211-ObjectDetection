@@ -51,4 +51,4 @@ Thời lượng gốc: 4 giờ. Làm theo thứ tự trong [GUIDE.md](GUIDE.md);
 - **Cần làm:** chạy notebook với nhãn đã QC; train YOLO26n và val/predict trên 10 ảnh eval, giữ nguyên split.
 - **Sản phẩm:** link Colab đã chạy; precision, recall, mAP50, mAP50–95 và ảnh prediction; trả lời bốn câu hỏi cuối notebook trong báo cáo.
 - **Cần hiểu:** eval cũng là validation dùng chọn best checkpoint, không phải test set độc lập. mAP thấp không tự chứng minh annotation sai.
-- **Tự kiểm tra:** đủ 50 train/10 eval; không upload gold train; có kết quả thực tế và giải thích một ảnh cụ thể.
+- **Tự kiểm tra:** đủ 50 train/10 eval; không commit gold train vào repo; có kết quả thực tế và giải thích một ảnh cụ thể.

@@ -35,8 +35,9 @@ Sau lab, bạn có thể:
 
 - Có tài khoản GitHub để lưu bài, công cụ annotation xuất được YOLO detection (CVAT, Label Studio hoặc Roboflow Annotate) và Google Colab để chạy notebook.
 - Có Python 3 trên máy để chạy hai script trong `tools/`; hai script này chỉ dùng thư viện chuẩn Python. Dùng `python3` hoặc `python` tùy cách cài Python, nhưng chạy lệnh từ thư mục gốc bài lab.
-- Lấy bản sao repo học viên theo quyền truy cập được lớp cung cấp. Không lấy repo giảng viên hoặc gold train làm dữ liệu annotation.
-- Trên Colab, upload/giải nén bản làm việc thành `/content/Day2-Lab`, hoặc sửa `LAB_ROOT` trong notebook cho đúng vị trí. Giữ 50 ảnh train, 10 ảnh eval đúng split; chọn runtime có GPU nếu được cấp.
+- **Fork repo đề bài** về tài khoản GitHub cá nhân (đặt tên theo chuẩn nộp ở [SUBMISSION.md](SUBMISSION.md)). Không lấy repo giảng viên hoặc gold train làm dữ liệu annotation.
+- Gán nhãn rồi **commit và push** `dataset/labels/train/` lên repo của bạn — đây là bản dữ liệu Colab sẽ tự clone.
+- Trên Colab, mở notebook `notebooks/day2_annotation_to_yolo.ipynb` (từ trang GitHub của repo, mở bằng nút Colab, hoặc dán URL repo). Chọn runtime có GPU nếu được cấp. Cell đầu tự clone repo của bạn về Colab — không cần upload file hay zip.
 
 Đọc theo thứ tự: [RULES.md](RULES.md) → [CHECKPOINTS.md](CHECKPOINTS.md) → [GUIDE.md](GUIDE.md). Khi chuẩn bị nộp, đối chiếu [SUBMISSION.md](SUBMISSION.md), [RUBRIC.md](RUBRIC.md) và [mẫu báo cáo](report/individual/MSSV_HoTen.md).
 

@@ -13,7 +13,7 @@ Nộp link repo trên LMS bằng tài khoản cá nhân. Tên repo/file và chec
 | 2:15-2:40 | Self-QC và kiểm tra cấu trúc | `check_yolo_labels.py` chạy đạt |
 | 2:40-3:00 | Nộp/khóa nhãn, nhận gold labels từ giảng viên | không sửa nhãn trước khi chạy đánh giá |
 | 3:00-3:20 | Chấm nhãn với gold set, rework nếu cần | F1 >= 0.80 và mean IoU >= 0.70 |
-| 3:20-4:00 | Đưa dataset lên Colab, train và evaluate YOLO | link Colab, ảnh/chỉ số eval |
+| 3:20-4:00 | Mở notebook Colab (tự clone repo của bạn), train và evaluate YOLO | link Colab, ảnh/chỉ số eval |
 
 ## 1. Quy tắc gán nhãn
 
@@ -68,7 +68,7 @@ height   = (y_max - y_min) / H
 
 ## 3. Self-QC trước khi nộp
 
-Chạy từ thư mục `Day2-Lab`:
+Chạy từ thư mục gốc repo (bản clone fork của bạn):
 
 ```bash
 python3 tools/check_yolo_labels.py
@@ -106,10 +106,10 @@ Bạn hoàn thành bước kiểm tra annotation khi `F1 >= 0.80` và `mean_iou_
 
 ## 5. Train và đánh giá model trên Google Colab
 
-Chỉ train sau khi đạt cả hai ngưỡng kiểm tra annotation. Mở `notebooks/day2_annotation_to_yolo.ipynb` trong Colab, upload thư mục `Day2-Lab` hoặc file ZIP của thư mục này. Không upload `gold_train_labels/`. Notebook sẽ:
+Chỉ train sau khi đạt cả hai ngưỡng kiểm tra annotation. Mở `notebooks/day2_annotation_to_yolo.ipynb` trong Colab từ repo của bạn, dán URL repo vào `REPO_URL` — notebook tự clone repo đã push, không cần upload file. Không upload hay commit `gold_train_labels/`. Notebook sẽ:
 
 1. cài Ultralytics phiên bản mới nhất;
-2. xác nhận 50 nhãn train và 10 nhãn eval;
+2. clone repo của bạn (từ `REPO_URL`) và xác nhận 50 nhãn train và 10 nhãn eval;
 3. train `yolo26n.pt` với `data.yaml`;
 4. evaluate `best.pt` trên **10 ảnh eval** có nhãn;
 5. lưu `results.csv`, confusion matrix, ảnh prediction và metrics;
