@@ -69,14 +69,14 @@ Trả lời bốn câu hỏi cuối notebook:
 
 ## 7. Tự đánh giá theo rubric
 
-Đối chiếu [RUBRIC.md](../../RUBRIC.md): phần nào đã có kết quả, phần nào còn thiếu hoặc chưa kiểm được. Không tự nhận hoàn thành bước chưa chạy.
-Đã hoàn thành và định dạng YOLO
-Đầy đủ vật thể
-Box sát phần vật thể nhìn thấy, không lấn nền/gộp vật thể
-Phân biệt `car/truck/bus/van`, không gán vật thể ngoài scope
-Đã hoàn thành Mini guideline và quyết định mơ hồ
-Gold-set annotation QC có F1 ~ 0.55 và mean IoU > 0.8
-Colab chạy được, không dùng eval để train, có metrics/ảnh eval và nhận xét lỗi
+1. Đối chiếu [RUBRIC.md](../../RUBRIC.md): phần nào đã có kết quả, phần nào còn thiếu hoặc chưa kiểm được. Không tự nhận hoàn thành bước chưa chạy.
+2. Đã hoàn thành và định dạng YOLO
+3. Đầy đủ vật thể
+4. Box sát phần vật thể nhìn thấy, không lấn nền/gộp vật thể
+5. Phân biệt `car/truck/bus/van`, không gán vật thể ngoài scope
+6. Đã hoàn thành Mini guideline và quyết định mơ hồ
+7. Gold-set annotation QC có F1 ~ 0.55 và mean IoU > 0.8
+8. Colab chạy được, không dùng eval để train, có metrics/ảnh eval và nhận xét lỗi
 ## 8. Công cụ AI và tài liệu tham khảo
 
 Ghi công cụ đã dùng, dùng ở bước nào và phần đã tự kiểm tra; không dùng thì ghi rõ. Liệt kê nguồn ngoài repo được sử dụng. Không ghi mật khẩu/token hoặc đính kèm gold train.
